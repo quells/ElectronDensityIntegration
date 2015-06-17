@@ -19,6 +19,6 @@ Then edit line 6 of [`Python/combine.py`](../Python#combinepy) to point to the a
 $ python ../Python/combine.py > combined.csv;
 ```
 
-[`Python/seegrapher.py`](../Python#seegrapherpy) and [`Python/graph-lin.py`](../Python#graphlinpy) can be run on this CSV file to generate graphs.
+[`Python/seegrapher.py`](../Python#seegrapherpy) and [`Python/graph-lin.py`](../Python#graphlinpy) can be run on this CSV file to generate graphs. The y-axis in [`Python/seegrapher.py`](../Python#seegrapherpy) will have to be adjusted to see any points with this data.
 
 [`Python/shadowfinder.py`](../Python#shadowfinderpy) can be run on each `.cub` file to generate a CSV file. Note that the values generated will be the log10 of the original value. [`Python/shadowgrapher.py`](../Python#shadowgrapherpy) can be run on these CSV files to generate shadow graphs.
