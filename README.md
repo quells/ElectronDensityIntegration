@@ -12,11 +12,11 @@ Contains several utility functions for parsing `.cub` files to extract informati
 
 `parseFile(filename)` extracts electron density data and hydrogen position in addition to all that `findAl()` does. It returns a tuple with this information.
 
-`distanceFromProton(point)` calculates the distance between the hydrogen projectile and an arbitrary point in space, assuming periodic boundary conditions. It requires the output from `parseFile()` to exist as global variables - see the spherical routine in `integrate.py` for a usage example.
+`distanceBetween(a, b)` calculates the distance between two arbitrary points in space, assuming periodic boundary conditions. Each point must be expressed as a list of floats with a length of 3. It requires the output from `parseFile()` to exist as global variables - see the spherical routine in `integrate.py` for a usage example.
 
 ## integrate.py
 
-Can be used to integrate data spherically around a hydrogen projectile or linearly across the entire supercell. Outputs a `.csv` file in the same directory as the input file. Requires `reusable.py` in the same directory to function.
+Can be used to integrate data spherically around a hydrogen projectile or linearly across the entire supercell in a `.cub` file. Outputs a `.csv` file in the same directory as the input file. **Requires** `reusable.py` in the same directory to function.
 
 ### Spherical Integration
 
@@ -44,6 +44,32 @@ Usage: `$ python integrate.py -h`
 
 `-h, --help` displays information about each flag.
 
+## combine.py
+
+Combines the output of multiple `integrate.py` runs of the same simulation at different timesteps into a single `.csv` file. **Must be edited** to change the `rootFolder` variable on line 6 to the location of the folder containing the `.csv` files to be combined.
+
+Output is written to standard out, so it can be piped into a file.
+
+Usage: `$ python combine.py > output.csv`
+
+## seegrapher.py
+
+Reads the output of `combine.py` and outputs plots that graph the electron density distribution at different timesteps.
+
+**Requires** the `matplotlib` and `numpy` modules to be installed.
+
+Usage: `$ python seegrapher.py filename`
+
 ## shadowfinder.py
 
-Integrates a thin sheet through the hydrogen projectile in the x-z plane. Outputs a `.csv` file in the same directory as the input file. Requires `reusable.py` in the same directory to function.
+Integrates a thin sheet through the hydrogen projectile in the x-z plane in a `.cub` file. Outputs a `.csv` file in the same directory as the input file. **Requires** `reusable.py` in the same directory to function.
+
+Usage: `$ python shadowfinder.py filename`
+
+## shadowgrapher.py
+
+Reads the output of `shadowgrapher.py` and outputs a contour map of the log10 of electron density through that slice.
+
+**Requires** the `matplotlib` and `numpy` modules to be installed.
+
+Usage: `$ python shadowgrapher.py filename`

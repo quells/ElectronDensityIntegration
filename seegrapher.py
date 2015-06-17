@@ -6,9 +6,10 @@ import numpy as np
 import sys
 import math
 
-parser = optparse.OptionParser(description='Graph combined electron data')
+parser = optparse.OptionParser(description='Graph combined electron data', usage='usage: %prog filename')
 (options, args) = parser.parse_args()
 
+'''Fail if command line arguments are invalid, see `README.md`'''
 try:
 	filename = args[0]
 except IndexError:

@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from matplotlib import cm, axes
 import numpy as np
 
-parser = optparse.OptionParser(description='Search for artifacts in secondary electron emission data.')
+parser = optparse.OptionParser(description='Search for artifacts in secondary electron emission data.', usage='usage: %prog filename')
 (options, args) = parser.parse_args()
 filename = args[0]
 args = options
