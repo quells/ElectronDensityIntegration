@@ -28,7 +28,7 @@ with open(filename) as f:
 		else:
 			line = line.split(',')
 			y.append(float(line[0]))
-			data.append([math.log(float(d), 10) for d in line[1:]])
+			data.append([float(d) for d in line[1:]])
 		n += 1
 time = filename.split('y')[-1].split('_')[0]
 
