@@ -6,7 +6,7 @@ This will generate a set of sample `.cub` files with a single aluminum atom, a s
 
 _If you load these files into VisIt, open them as the `Cube` file type. Ensure that the `default open options` are changed so that `ExtendVolumeByOneCell` is deselected._
 
-Run [`Python/integrate.py`](Python#integratepy) on each `.cub` file in both spherical and linear-z modes. For example, assuming you are in the Example directory,
+Run [`Python/integrate.py`](../Python#integratepy) on each `.cub` file in both spherical and linear-z modes. For example, assuming you are in the Example directory,
 
 ```bash
 $ python ../Python/integrate.py -s density0000.cub;
