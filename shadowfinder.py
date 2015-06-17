@@ -4,7 +4,7 @@ import optparse
 import sys
 import os
 
-from reusable import parseFile, distanceFromProton
+from reusable import parseFile
 import math
 
 
