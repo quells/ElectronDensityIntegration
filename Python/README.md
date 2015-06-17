@@ -60,6 +60,14 @@ Reads the output of `combine.py` and outputs plots that graph the electron densi
 
 Usage: `$ python seegrapher.py filename`
 
+## graph-lin.py
+
+Reads the output of `combine.py` and outputs plots that graph the change in electron density distribution over time.
+
+**Requires** the `matplotlib` and `numpy` modules to be installed.
+
+Usage: `$ python graph-lin.py filename`
+
 ## shadowfinder.py
 
 Integrates a thin sheet through the hydrogen projectile in the x-z plane in a `.cub` file. Outputs a `.csv` file in the same directory as the input file. **Requires** `reusable.py` in the same directory to function.
