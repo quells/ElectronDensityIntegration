@@ -6,6 +6,7 @@ import os
 
 from reusable import parseFile, distanceBetween
 
+'''Parse command line arguments'''
 int_desc = 'Integrate electron density simulation results with respect to distance. Specialized options exist for handling projectiles and aluminum sheets.'
 int_usage = 'usage: %prog [options] filename'
 parser = optparse.OptionParser(description=int_desc, usage=int_usage)
@@ -24,6 +25,7 @@ parser.add_option_group(intType)
 parser.add_option_group(linIntDir)
 (options, args) = parser.parse_args()
 
+'''Fail if command line arguments are invalid, see `README.md`'''
 try:
 	filename = args[0]
 except IndexError:
@@ -47,9 +49,10 @@ if args.linear == True:
 		print 'error - Select only one linear integration direction.'
 		sys.exit()
 
+'''Read data from file using `reusable.py`'''
 (numAtoms, dimensions, resolution, dV, data, protonPosition, alPositions) = parseFile(filename)
 
-# Output will be a CSV table
+'''Output will be a CSV table'''
 outputString = 'hydrogen position (Bohr radii),,\n'
 outputString += 'x,y,z\n'
 outputString += ','.join(['%.8f'%(i) for i in protonPosition]) + '\n'
@@ -91,7 +94,6 @@ if args.spherical:
 				for z in range(dz[0], dz[1]):
 					if z >= dimensions[2]:
 						z -= dimensions[2]
-					# distance = distanceFromProton([x*resolution[0], y*resolution[1], z*resolution[2]])
 					distance = distanceBetween(protonPosition, [x*resolution[0], y*resolution[1], z*resolution[2]])
 					radius = r*effectiveRes
 					if distance <= radius:
