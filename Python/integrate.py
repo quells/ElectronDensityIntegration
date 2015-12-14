@@ -68,7 +68,6 @@ if args.spherical:
 		maxRange = int(args.maxRange/effectiveRes)
 	# If there are aluminum atoms close to the projectile, do not integrate into the aluminum
 	for al in alPositions:
-		# a = int(distanceFromProton(al)/effectiveRes)+1
 		a = int(distanceBetween(protonPosition, al))
 		maxRange = min(maxRange, a)
 
