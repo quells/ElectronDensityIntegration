@@ -65,10 +65,12 @@ if args.spherical:
 	maxRange = min(dimensions)/2
 	# If a maximum range is given, use that.
 	if not args.maxRange == None:
+		# Convert args.maxRange from 'real space' to 'index space'
 		maxRange = int(args.maxRange/effectiveRes)
 	# If there are aluminum atoms close to the projectile, do not integrate into the aluminum
 	for al in alPositions:
-		a = int(distanceBetween(protonPosition, al))
+		# Convert a from 'real space' to 'index space'
+		a = int(distanceBetween(protonPosition, al)/effectiveRes)
 		maxRange = min(maxRange, a)
 
 	px, py, pz = protonPosition
